@@ -38,24 +38,26 @@ public class HowItWorkWindow {
 							+ "\n2. The advantage of this program is the fact that you enter the words which you want to learn."
 							+ "\n3. First add the words which you want to learn to the list."
 							+ "\n4. Then press the button (Next Word) to draw the word from the list."
-							+ "\n5. Enter the correct answer and check the correctness using the \"Check\" button"
-							+ "\n6. After ten correct answers in a row, the word will be considered as learned and will be moved to the list of learned words"
-							+ "\n7. If the answer is incorrect, the number of correct answers will be reduced by three"
-							+ "\n8. Before shutting down the program, save your status so that you don't lose progress and data"
-							+ "\n9. After starting the program, the data should be loaded"
+							+ "\n5. Enter the correct answer and check the correctness using the \"Check\" button or press enter"
+							+ "\n6. To drow another word, press space bar or the (Next Word) button."
+							+ "\n7. After ten correct answers in a row, the word will be considered as learned and will be moved to the list of learned words"
+							+ "\n8. If the answer is incorrect, the number of correct answers will be reduced by three"
+							+ "\n9. Before shutting down the program, save your status so that you don't lose progress and data"
+							+ "\n10. After starting the program, the data will be loaded automatically"
 					);
 		}
 		else {
 			informationTA.setText(
-					"1. Program zostaÅ‚ napisany aby pomÃ³c w nauce sÅ‚Ã³wek w obcym jÄ™zyku."
-							+ "\n2. PrzewagÄ… tego programu jest to Å¼e moÅ¼e samemu moÅ¼na wprowadziÄ‡ sÅ‚Ã³wka ktÃ³rych chcesz siÄ™ uczyÄ‡."
-							+ "\n3. Najpierw dodaj sÅ‚Ã³wka, ktÃ³rych chcesz siÄ™ nauczyÄ‡ do listy."
-							+ "\n4. NastÄ™pnie wciÅ›nij przycisk (NastÄ™pny Wyraz) aby wylosowaÄ‡ wyraz do tÅ‚umaczenia."
-							+ "\n5. WprowadÅº poprawnÄ… odpowiedÅº i wciÅ›nij przycisk \"SprawdÅº\""
-							+ "\n6. Po dziesiÄ™ciu poprawnych odpowiedziach z rzÄ™du, dane sÅ‚Ã³wko zostaje uznane za nauczone i przeniesione do listy wyrazÃ³w nauczoonych."
-							+ "\n7. JeÅ›li odpowiedÅº nie jest poprawna, to liczba poprawnych odpowiedzi danego sÅ‚Ã³wka zostaje zmniejszona o trzy."
-							+ "\n8. Przed zamkniÄ™ciem programu naleÅ¼y zapisaÄ‡ stan aby nie utraciÄ‡ wprowadzonych danych."
-							+ "\n9. Po uruchomieniu programu naleÅ¼y wczytaÄ‡ dane."
+					"1. Program zosta³ napisany aby pomóc w nauce s³ówek w obcym jêzyku."
+							+ "\n2. Przewag¹ tego programu jest to ¿e mo¿e samemu mo¿na wprowadziæ s³ówka których chcesz siê uczyæ."
+							+ "\n3. Najpierw dodaj s³ówka, których chcesz siê nauczyæ do listy."
+							+ "\n4. Nastêpnie naciœnij przycisk (Nastêpny Wyraz) aby wylosowaæ wyraz do t³umaczenia."
+							+ "\n5. WprowadŸ poprawn¹ odpowiedŸ i wciœnij przycisk \"SprawdŸ\" lub naciœnij enter."
+							+ "\n6. Aby wylosowaæ kolejny wyraz wciœnij spacje lub przycisk (Nastêpny wyraz)."
+							+ "\n7. Po dziesiêciu poprawnych odpowiedziach z rzêdu, dane s³ówko zostaje uznane za nauczone i przeniesione do listy wyrazów nauczoonych."
+							+ "\n8. Jeœli odpowiedŸ nie jest poprawna, to liczba poprawnych odpowiedzi danego s³ówka zostaje zmniejszona o trzy."
+							+ "\n9. Przed zamkniêciem programu nale¿y zapisaæ stan aby nie utraciæ wprowadzonych danych."
+							+ "\n10. Po uruchomieniu programu dane wczytane zostan¹ automatycznie."
 					);
 			
 		}

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LearnWindow">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LearnWindow">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" AnchorPane.topAnchor="0.0">
          <bottom>
@@ -87,18 +87,18 @@
          <center>
             <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="250.0" prefWidth="250.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="200.0" prefWidth="200.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.0" minWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="100.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.40000000000003" minWidth="185.59998168945313" prefWidth="306.8" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.1999633789063" minWidth="0.0" prefWidth="333.5999877929688" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.0" minWidth="100.0" prefWidth="183.4000122070313" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="74.00002441406252" prefWidth="74.00002441406252" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label fx:id="wordLabel" text="Word" GridPane.halignment="CENTER">
@@ -117,13 +117,18 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="wordL" alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="232.0" GridPane.rowIndex="1">
+                  <Label fx:id="wordL" alignment="CENTER_RIGHT" wrapText="true" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                      <font>
                         <Font size="24.0" />
                      </font>
+                  </Label>
+                  <Label fx:id="correctL" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
                   </Label>
                   <TextField fx:id="translationTF" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
@@ -133,21 +138,6 @@
                         <Font size="24.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="correctL" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Label>
-                  <Button fx:id="addNewWordB" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add New Word" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button fx:id="showTranslationB" mnemonicParsing="false" text="Show Translation" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </GridPane.margin>
-                  </Button>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <Button fx:id="checkB" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Check">
@@ -162,6 +152,16 @@
                         </Button>
                      </children>
                   </VBox>
+                  <Button fx:id="showTranslationB" mnemonicParsing="false" text="Show Translation" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="addNewWordB" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add New Word" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </Button>
                   <Label fx:id="saveL" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

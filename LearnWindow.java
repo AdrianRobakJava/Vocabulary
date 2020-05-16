@@ -14,20 +14,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class LearnWindow {
-	
+
 	@FXML
 	private Label wordLabel;
-	@FXML 
+	@FXML
 	private Label translationL;
 	@FXML
 	private Label wordL;
-	@FXML 
+	@FXML
 	private Label correctL;
-	@FXML 
+	@FXML
 	private Label saveL;
 	@FXML
 	private TextField translationTF;
@@ -57,21 +58,22 @@ public class LearnWindow {
 	private Button closeB;
 	private WordsList wordsList;
 	private Word word;
-	
+
 	public static String whichList;
-	//Current language 
+	// Current language
 	public static String language = "EN";
-	
-	//Current index for object "word" in object wordsList in ArrayList
+
+	// Current index for object "word" in object wordsList in ArrayList
 	private int wordIndex;
-	
-	//Can have values 1 and 0, needed for the correct working of the spell check buttons
+
+	// Can have values 1 and 0, needed for the correct working of the spell check
+	// buttons
 	private int checkButton = 0;
-	
+
 	public LearnWindow() {
 		wordsList = new WordsList();
 	}
-	
+
 	@FXML
 	private void initialize() {
 		initAddNewWordButton();
@@ -84,14 +86,15 @@ public class LearnWindow {
 		initShowTranslationButton();
 		initShowHowItWorkButton();
 		initPlEnButton();
-		//initAddWords();
+		// initAddWords();
 		initSaveButton();
 		initLoadButton();
 		loadAllWords();
+		initCheckWordByEnter();
+		// initKey();
 
 	}
-	
-	
+
 	public void initPlEnButton() {
 		plenB.setOnAction((event) -> {
 			try {
@@ -102,7 +105,7 @@ public class LearnWindow {
 			saveL.setText("");
 		});
 	}
-	
+
 	public void initAddNewWordButton() {
 		addNewWordB.setOnAction((event) -> {
 			try {
@@ -113,7 +116,7 @@ public class LearnWindow {
 			saveL.setText("");
 		});
 	}
-	
+
 	public void initShowHowItWorkButton() {
 		howItWorkB.setOnAction((event) -> {
 			try {
@@ -124,7 +127,7 @@ public class LearnWindow {
 			saveL.setText("");
 		});
 	}
-	
+
 	public void initNextWordButton() {
 		nextWordB.setOnAction((event) -> {
 			try {
@@ -132,62 +135,80 @@ public class LearnWindow {
 				nextWord();
 				translationTF.setText("");
 				checkButton = 1;
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			// Go back to the text field
+			translationTF.requestFocus();
+
 			correctL.setText("");
 			saveL.setText("");
 		});
 	}
-	
+
 	public void initCheckButton() {
 		checkB.setOnAction((event) -> {
-			try {
-				if( !translationTF.getText().isEmpty() && checkButton == 1) {
-					checkWord();
-				}else {
-					correctL.setTextFill(Color.RED);
-					if(language.equals("EN")) {
-						if(translationTF.getText().isEmpty() && checkButton == 0) {
-							correctL.setText("Draw your word!");	
-						}
-						if(checkButton == 1) {
-							correctL.setText("The field is empty!");
-						}
-					}else {
-						if(translationTF.getText().isEmpty() && checkButton == 0) {
-						correctL.setText("Wylosuj nowy wyraz!");
-						}
-						if(checkButton == 1) {
-							correctL.setText("Nic nie wpisano!");
-						}
-					
-					}
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			saveL.setText("");
+			checkButtonCode();
 		});
 	}
 	
+	public void initCheckWordByEnter() {
+		translationTF.setOnKeyPressed((event)->{
+			if(event.getCode().equals(KeyCode.ENTER)) {
+				checkButtonCode();
+			}
+		});
+	}
+	
+	public void checkButtonCode() {
+		try {
+			if (!translationTF.getText().isEmpty() && checkButton == 1) {
+				checkWord();
+			} else {
+				correctL.setTextFill(Color.RED);
+				if (language.equals("EN")) {
+					if (translationTF.getText().isEmpty() && checkButton == 0) {
+						correctL.setText("Draw your word!");
+					}
+					if (checkButton == 1) {
+						correctL.setText("The field is empty!");
+					}
+				} else {
+					if (translationTF.getText().isEmpty() && checkButton == 0) {
+						correctL.setText("Wylosuj nowy wyraz!");
+					}
+					if (checkButton == 1) {
+						correctL.setText("Nic nie wpisano!");
+					}
+
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		saveL.setText("");
+		nextWordB.requestFocus();
+	}
+	 
+
 	public void initShowTranslationButton() {
 		showTranslationB.setOnAction((event) -> {
-			if(checkButton == 1) {
+			if (checkButton == 1) {
 				correctL.setTextFill(Color.BLUE);
 				correctL.setText(word.getYourWord());
 			}
 			saveL.setText("");
 		});
 	}
-	
+
 	public void initCloseButton() {
 		closeB.setOnAction((event) -> {
 			Stage stage = (Stage) closeB.getScene().getWindow();
 			stage.close();
 		});
 	}
+
 	public void initStatisticsButton() {
 		statisticsB.setOnAction((event) -> {
 			try {
@@ -200,7 +221,7 @@ public class LearnWindow {
 			saveL.setText("");
 		});
 	}
-	
+
 	public void initLearnedListButton() {
 		allWordListB.setOnAction((event) -> {
 			try {
@@ -213,9 +234,9 @@ public class LearnWindow {
 			saveL.setText("");
 		});
 	}
-	
+
 	public void initWordsToLearnListButton() {
-		
+
 		wordsToLearnB.setOnAction((event) -> {
 			try {
 				whichList = "toLearn";
@@ -227,7 +248,7 @@ public class LearnWindow {
 			saveL.setText("");
 		});
 	}
-	
+
 	public Stage showAddNewWordWindow() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("AddNewWordWindow.fxml"));
@@ -240,7 +261,7 @@ public class LearnWindow {
 		stage.show();
 		return stage;
 	}
-	
+
 	public Stage showHowItWorkWindow() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("HowItWorkWindow.fxml"));
@@ -251,7 +272,7 @@ public class LearnWindow {
 		stage.show();
 		return stage;
 	}
-	
+
 	public Stage showStatisticsWindow() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("StatisticsWindow.fxml"));
@@ -264,68 +285,69 @@ public class LearnWindow {
 		stage.show();
 		return stage;
 	}
-	
-	//A method of drawing words to be translated
+
+	// A method of drawing words to be translated
 	public void nextWord() {
 		Random rand = new Random();
-		if(wordsList.getWordsList().size() > 0) {
+		if (wordsList.getWordsList().size() > 0) {
 			wordIndex = rand.nextInt(wordsList.getWordsList().size());
 			word = wordsList.getWordsList().get(wordIndex);
 			wordL.setText(word.onlyTranslation());
-		}else {
+		} else {
 			correctL.setTextFill(Color.RED);
-			if(language.equals("EN")) {
+			if (language.equals("EN")) {
 				correctL.setText("You have already lerned all the words.");
-			}else {
-				correctL.setText("Nauczy≈Çe≈õ siƒô ju≈º wszystkich wprowadzonych wyraz√≥w.");
+			} else {
+				correctL.setText("Nauczy≥eú siÍ juø wszystkich wprowadzonych wyrazÛw.");
 			}
 		}
 	}
-	
-	//Method to check the correctness of the translation
+
+	// Method to check the correctness of the translation
 	public void checkWord() {
 		String temp = translationTF.getText();
-		
-		if(wordsList.getWordsList().size() > 0) {
-			if(temp.equals(word.getYourWord())) {
+
+		if (wordsList.getWordsList().size() > 0) {
+			if (temp.equals(word.getYourWord())) {
 				word.addOneToCorrect();
 				correctL.setTextFill(Color.GREEN);
-				if(language.equals("EN")) {
-					correctL.setText("Good it is correct!\n "+ word.getYourWord() +" ");
-				}else {
-					correctL.setText("Dobrze, poprawna odpowied≈∫!\n "+ word.getYourWord() +" ");
+				if (language.equals("EN")) {
+					correctL.setText("Good it is correct!\n " + word.getYourWord() + " ");
+				} else {
+					correctL.setText("Dobrze, poprawna odpowiedü!\n " + word.getYourWord() + " ");
 				}
 				checkButton = 0;
-				
-				//After ten correct answers in a row, the word will be transferred to the list of learned words
-				if(word.getCorrectCounter() >= 10) {
-					if(language.equals("EN")) {
+
+				// After ten correct answers in a row, the word will be transferred to the list
+				// of learned words
+				if (word.getCorrectCounter() >= 10) {
+					if (language.equals("EN")) {
 						correctL.setText("Good it is correct!\nNow you know that word very well.");
-					}else {
-						correctL.setText("Dobrze, poprawna odpowied≈∫!\nTeraz znasz ten wyraz bardzo dobrze.");
+					} else {
+						correctL.setText("Dobrze, poprawna odpowiedü!\nTeraz znasz ten wyraz bardzo dobrze.");
 					}
 					wordsList.addWordToLearned(word);
 					wordsList.removeWord(wordIndex);
 				}
-			}else {
+			} else {
 				word.addOneToIncorrect();
 				correctL.setTextFill(Color.RED);
-				if(language.equals("EN")) {
+				if (language.equals("EN")) {
 					correctL.setText("Incorrect!");
-				}else {
-					correctL.setText("Niepoprawne t≈Çumaczenie!");
+				} else {
+					correctL.setText("Niepoprawne t≥umaczenie!");
 				}
 			}
-		}else {
+		} else {
 			correctL.setTextFill(Color.RED);
-			if(language.equals("EN")) {
-				correctL.setText("You have already learned everything!");	
-			}else {
-				correctL.setText("Nauczy≈Çe≈õ siƒô ju≈º wszystkich s≈Ç√≥wek!");	
+			if (language.equals("EN")) {
+				correctL.setText("You have already learned everything!");
+			} else {
+				correctL.setText("Nauczy≥eú siÍ juø wszystkich s≥Ûwek!");
 			}
 		}
 	}
-	
+
 	public void initAddWords() {
 		Word w1 = new Word("word", "wyraz");
 		wordsList.addWord(w1);
@@ -338,14 +360,14 @@ public class LearnWindow {
 		Word w5 = new Word("water", "woda");
 		wordsList.addWord(w5);
 	}
-	
+
 	public void changeMenuLanguage() {
-		if(language.equals("EN")) {
-			howItWorkB.setText("Jak To Dzia≈Ça");
-			checkB.setText("Sprawd≈∫");
-			nextWordB.setText("Nastƒôpne S≈Çowo");
-			showTranslationB.setText("Poka≈º T≈Çumaczenie");
-			addNewWordB.setText("Dodaj Nowe S≈Çowo");
+		if (language.equals("EN")) {
+			howItWorkB.setText("Jak To Dzia≥a");
+			checkB.setText("Sprawdü");
+			nextWordB.setText("NastÍpne S≥owo");
+			showTranslationB.setText("Pokaø T≥umaczenie");
+			addNewWordB.setText("Dodaj Nowe S≥owo");
 			saveB.setText("Zapisz");
 			loadB.setText("Wczytaj");
 			statisticsB.setText("Statystyki");
@@ -353,9 +375,9 @@ public class LearnWindow {
 			allWordListB.setText("Nauczone Wyrazy");
 			closeB.setText("Zamknij");
 			wordLabel.setText("Wyraz");
-			translationL.setText("T≈Çumaczenie");
+			translationL.setText("T≥umaczenie");
 			language = "PL";
-		}else{
+		} else {
 			howItWorkB.setText("How It Work");
 			checkB.setText("Check");
 			nextWordB.setText("Next Word");
@@ -371,34 +393,34 @@ public class LearnWindow {
 			translationL.setText("Translation");
 			language = "EN";
 		}
-		
+
 	}
-	
+
 	public void initSaveButton() {
-		
+
 		saveB.setOnAction((event) -> {
 			try {
 				saveAllWords();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 		});
-		
+
 	}
-	
+
 	public void initLoadButton() {
-		
+
 		loadB.setOnAction((event) -> {
 			try {
-				if(wordsList.getWordsList().size() == 0 && wordsList.getLearnedWordsList().size() == 0) {
-					loadAllWords();	
-				}else {
+				if (wordsList.getWordsList().size() == 0 && wordsList.getLearnedWordsList().size() == 0) {
+					loadAllWords();
+				} else {
 					saveL.setTextFill(Color.RED);
-					if(language.equals("EN")) {
+					if (language.equals("EN")) {
 						saveL.setText("Data has already\n been loaded.");
-					}else {
-						saveL.setText("Dane by≈Çy ju≈º wczytane.");
+					} else {
+						saveL.setText("Dane by≥y juø wczytane.");
 					}
 				}
 			} catch (Exception e) {
@@ -406,9 +428,9 @@ public class LearnWindow {
 			}
 
 		});
-		
+
 	}
-	
+
 	public void loadAllWords() {
 		try {
 			File file1 = new File("Learned.csv");
@@ -421,10 +443,10 @@ public class LearnWindow {
 				word.setCorrectCounter(Integer.parseInt(values[5]));
 				word.setIncorrectCounter(Integer.parseInt(values[6]));
 				wordsList.getLearnedWordsList().add(word);
-				
-			} 
+
+			}
 			sc1.close();
-			
+
 			File file2 = new File("ToLearn.csv");
 			Scanner sc2 = new Scanner(file2);
 			while (sc2.hasNextLine()) {
@@ -435,26 +457,25 @@ public class LearnWindow {
 				word.setCorrectCounter(Integer.parseInt(values[5]));
 				word.setIncorrectCounter(Integer.parseInt(values[6]));
 				wordsList.getWordsList().add(word);
-			} 
+			}
 			sc2.close();
-		}catch (FileNotFoundException e) {
-				System.out.println("Nie ma takiego pliku");
+		} catch (FileNotFoundException e) {
+			System.out.println("Nie ma takiego pliku");
 		}
 		saveL.setTextFill(Color.GREEN);
-		if(language.equals("EN")) {
+		if (language.equals("EN")) {
 			saveL.setText("Data has been loaded.");
-		}else {
-			saveL.setText("Dane zosta≈Çy wczytane.");
+		} else {
+			saveL.setText("Dane zosta≥y wczytane.");
 		}
-		
+
 	}
-	
-	
+
 	public void saveAllWords() {
 		try {
 			PrintWriter pw1 = new PrintWriter(new File("Learned.csv"));
-			
-			for(Word w : wordsList.getLearnedWordsList()) {
+
+			for (Word w : wordsList.getLearnedWordsList()) {
 				pw1.append(w.getYourWord() + ",");
 				pw1.append(w.getYourTranslation1() + ",");
 				pw1.append(w.getYourTranslation2() + ",");
@@ -464,13 +485,12 @@ public class LearnWindow {
 				pw1.append(w.getIncorrectCounter() + "");
 				pw1.append("\n");
 			}
-			
-			
+
 			pw1.close();
-			
+
 			PrintWriter pw2 = new PrintWriter(new File("ToLearn.csv"));
-			
-			for(Word w : wordsList.getWordsList()) {
+
+			for (Word w : wordsList.getWordsList()) {
 				pw2.append(w.getYourWord() + ",");
 				pw2.append(w.getYourTranslation1() + ",");
 				pw2.append(w.getYourTranslation2() + ",");
@@ -480,27 +500,25 @@ public class LearnWindow {
 				pw2.append(w.getIncorrectCounter() + "");
 				pw2.append("\n");
 			}
-			
-			
+
 			pw2.close();
 			saveL.setTextFill(Color.GREEN);
-			if(language.equals("EN")) {
+			if (language.equals("EN")) {
 				saveL.setText("Data saved.");
-			}else {
-				saveL.setText("Dane zosta≈Çy zapisane.");
+			} else {
+				saveL.setText("Dane zosta≥y zapisane.");
 			}
-				
-		}catch(FileNotFoundException e) {
+
+		} catch (FileNotFoundException e) {
 			saveL.setTextFill(Color.RED);
-			if(language.equals("EN")) {
+			if (language.equals("EN")) {
 				saveL.setText("Data has not been saved.");
-			}else {
-				saveL.setText("Dane nie zosta≈Çy zapisane.");
+			} else {
+				saveL.setText("Dane nie zosta≥y zapisane.");
 			}
 		}
-		
+
 	}
-	
 
 	public String getLanguage() {
 		return language;
@@ -509,6 +527,5 @@ public class LearnWindow {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	
 
 }

@@ -60,7 +60,7 @@ public class StatisticsWindow {
 			closeB.setText("Close");
 			
 		}else {
-			showB.setText("PokaÅ¼");
+			showB.setText("Poka¿");
 			closeB.setText("Zamknij");
 			
 		}
@@ -83,11 +83,11 @@ public class StatisticsWindow {
 		}else {
 			sb.append("\n     Statystyki   \n\n");	
 			for(Word w : wordsList.getLearnedWordsList()) {
-				sb.append(w + " => " + "Wszystkie prÃ³by (" + w.getTotalShowCounter() + "), Poprawne odpowiedzi z rzÄ™du (" + w.getCorrectCounter() + "), Niepoprawne odpowiedzi (" + w.getIncorrectCounter() + ")" );
+				sb.append(w + " => " + "Wszystkie próby (" + w.getTotalShowCounter() + "), Poprawne odpowiedzi z rzêdu (" + w.getCorrectCounter() + "), Niepoprawne odpowiedzi (" + w.getIncorrectCounter() + ")" );
 				sb.append("\n ");
 			}
 			for(Word w : wordsList.getWordsList()) {
-				sb.append(w + " => " + "Wszystkie prÃ³by (" + w.getTotalShowCounter() + "), Poprawne odpowiedzi z rzÄ™du (" + w.getCorrectCounter() + "), Niepoprawne odpowiedzi (" + w.getIncorrectCounter() + ")" );
+				sb.append(w + " => " + "Wszystkie próby (" + w.getTotalShowCounter() + "), Poprawne odpowiedzi z rzêdu (" + w.getCorrectCounter() + "), Niepoprawne odpowiedzi (" + w.getIncorrectCounter() + ")" );
 				sb.append("\n ");
 			}
 		}
