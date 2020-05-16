@@ -48,16 +48,16 @@ public class HowItWorkWindow {
 		}
 		else {
 			informationTA.setText(
-					"1. Program zosta³ napisany aby pomóc w nauce s³ówek w obcym jêzyku."
-							+ "\n2. Przewag¹ tego programu jest to ¿e mo¿e samemu mo¿na wprowadziæ s³ówka których chcesz siê uczyæ."
-							+ "\n3. Najpierw dodaj s³ówka, których chcesz siê nauczyæ do listy."
-							+ "\n4. Nastêpnie naciœnij przycisk (Nastêpny Wyraz) aby wylosowaæ wyraz do t³umaczenia."
-							+ "\n5. WprowadŸ poprawn¹ odpowiedŸ i wciœnij przycisk \"SprawdŸ\" lub naciœnij enter."
-							+ "\n6. Aby wylosowaæ kolejny wyraz wciœnij spacje lub przycisk (Nastêpny wyraz)."
-							+ "\n7. Po dziesiêciu poprawnych odpowiedziach z rzêdu, dane s³ówko zostaje uznane za nauczone i przeniesione do listy wyrazów nauczoonych."
-							+ "\n8. Jeœli odpowiedŸ nie jest poprawna, to liczba poprawnych odpowiedzi danego s³ówka zostaje zmniejszona o trzy."
-							+ "\n9. Przed zamkniêciem programu nale¿y zapisaæ stan aby nie utraciæ wprowadzonych danych."
-							+ "\n10. Po uruchomieniu programu dane wczytane zostan¹ automatycznie."
+					"1. Program zostaÅ‚ napisany aby pomÃ³c w nauce sÅ‚Ã³wek w obcym jÄ™zyku."
+							+ "\n2. PrzewagÄ… tego programu jest to Å¼e moÅ¼e samemu moÅ¼na wprowadziÄ‡ sÅ‚Ã³wka ktÃ³rych chcesz siÄ™ uczyÄ‡."
+							+ "\n3. Najpierw dodaj sÅ‚Ã³wka, ktÃ³rych chcesz siÄ™ nauczyÄ‡ do listy."
+							+ "\n4. NastÄ™pnie naciÅ›nij przycisk (NastÄ™pny Wyraz) aby wylosowaÄ‡ wyraz do tÅ‚umaczenia."
+							+ "\n5. WprowadÅº poprawnÄ… odpowiedÅº i wciÅ›nij przycisk \"SprawdÅº\" lub naciÅ›nij enter."
+							+ "\n6. Aby wylosowaÄ‡ kolejny wyraz wciÅ›nij spacje lub przycisk (NastÄ™pny wyraz)."
+							+ "\n7. Po dziesiÄ™ciu poprawnych odpowiedziach z rzÄ™du, dane sÅ‚Ã³wko zostaje uznane za nauczone i przeniesione do listy wyrazÃ³w nauczoonych."
+							+ "\n8. JeÅ›li odpowiedÅº nie jest poprawna, to liczba poprawnych odpowiedzi danego sÅ‚Ã³wka zostaje zmniejszona o trzy."
+							+ "\n9. Przed zamkniÄ™ciem programu naleÅ¼y zapisaÄ‡ stan aby nie utraciÄ‡ wprowadzonych danych."
+							+ "\n10. Po uruchomieniu programu dane wczytane zostanÄ… automatycznie."
 					);
 			
 		}

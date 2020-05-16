@@ -298,7 +298,7 @@ public class LearnWindow {
 			if (language.equals("EN")) {
 				correctL.setText("You have already lerned all the words.");
 			} else {
-				correctL.setText("Nauczy≥eú siÍ juø wszystkich wprowadzonych wyrazÛw.");
+				correctL.setText("Nauczy≈Çe≈õ siƒô ju≈º wszystkich wprowadzonych wyraz√≥w.");
 			}
 		}
 	}
@@ -314,7 +314,7 @@ public class LearnWindow {
 				if (language.equals("EN")) {
 					correctL.setText("Good it is correct!\n " + word.getYourWord() + " ");
 				} else {
-					correctL.setText("Dobrze, poprawna odpowiedü!\n " + word.getYourWord() + " ");
+					correctL.setText("Dobrze, poprawna odpowied≈∫!\n " + word.getYourWord() + " ");
 				}
 				checkButton = 0;
 
@@ -324,7 +324,7 @@ public class LearnWindow {
 					if (language.equals("EN")) {
 						correctL.setText("Good it is correct!\nNow you know that word very well.");
 					} else {
-						correctL.setText("Dobrze, poprawna odpowiedü!\nTeraz znasz ten wyraz bardzo dobrze.");
+						correctL.setText("Dobrze, poprawna odpowied≈∫!\nTeraz znasz ten wyraz bardzo dobrze.");
 					}
 					wordsList.addWordToLearned(word);
 					wordsList.removeWord(wordIndex);
@@ -335,7 +335,7 @@ public class LearnWindow {
 				if (language.equals("EN")) {
 					correctL.setText("Incorrect!");
 				} else {
-					correctL.setText("Niepoprawne t≥umaczenie!");
+					correctL.setText("Niepoprawne t≈Çumaczenie!");
 				}
 			}
 		} else {
@@ -343,7 +343,7 @@ public class LearnWindow {
 			if (language.equals("EN")) {
 				correctL.setText("You have already learned everything!");
 			} else {
-				correctL.setText("Nauczy≥eú siÍ juø wszystkich s≥Ûwek!");
+				correctL.setText("Nauczy≈Çe≈õ siƒô ju≈º wszystkich s≈Ç√≥wek!");
 			}
 		}
 	}
@@ -363,11 +363,11 @@ public class LearnWindow {
 
 	public void changeMenuLanguage() {
 		if (language.equals("EN")) {
-			howItWorkB.setText("Jak To Dzia≥a");
-			checkB.setText("Sprawdü");
-			nextWordB.setText("NastÍpne S≥owo");
-			showTranslationB.setText("Pokaø T≥umaczenie");
-			addNewWordB.setText("Dodaj Nowe S≥owo");
+			howItWorkB.setText("Jak To Dzia≈Ça");
+			checkB.setText("Sprawd≈∫");
+			nextWordB.setText("Nastƒôpne S≈Çowo");
+			showTranslationB.setText("Poka≈º T≈Çumaczenie");
+			addNewWordB.setText("Dodaj Nowe S≈Çowo");
 			saveB.setText("Zapisz");
 			loadB.setText("Wczytaj");
 			statisticsB.setText("Statystyki");
@@ -375,7 +375,7 @@ public class LearnWindow {
 			allWordListB.setText("Nauczone Wyrazy");
 			closeB.setText("Zamknij");
 			wordLabel.setText("Wyraz");
-			translationL.setText("T≥umaczenie");
+			translationL.setText("T≈Çumaczenie");
 			language = "PL";
 		} else {
 			howItWorkB.setText("How It Work");
@@ -420,7 +420,7 @@ public class LearnWindow {
 					if (language.equals("EN")) {
 						saveL.setText("Data has already\n been loaded.");
 					} else {
-						saveL.setText("Dane by≥y juø wczytane.");
+						saveL.setText("Dane zosta≈Çy ju≈º wczytane.");
 					}
 				}
 			} catch (Exception e) {
@@ -466,7 +466,7 @@ public class LearnWindow {
 		if (language.equals("EN")) {
 			saveL.setText("Data has been loaded.");
 		} else {
-			saveL.setText("Dane zosta≥y wczytane.");
+			saveL.setText("Dane zosta≈Çy wczytane.");
 		}
 
 	}
@@ -506,7 +506,7 @@ public class LearnWindow {
 			if (language.equals("EN")) {
 				saveL.setText("Data saved.");
 			} else {
-				saveL.setText("Dane zosta≥y zapisane.");
+				saveL.setText("Dane zosta≈Çy zapisane.");
 			}
 
 		} catch (FileNotFoundException e) {
@@ -514,7 +514,7 @@ public class LearnWindow {
 			if (language.equals("EN")) {
 				saveL.setText("Data has not been saved.");
 			} else {
-				saveL.setText("Dane nie zosta≥y zapisane.");
+				saveL.setText("Dane nie zosta≈Çy zapisane.");
 			}
 		}
 

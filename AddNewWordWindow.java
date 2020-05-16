@@ -67,8 +67,8 @@ public class AddNewWordWindow {
 			cancelB.setText("Anuluj");
 			addNewWordL.setText("Dodaj Nowy Wyraz");
 			newWordL.setText("Nowy Wyraz");
-			repeatNewWordL.setText("PowtÛrz Wyraz");
-			yourTranslationL.setText("Twoje T≥umaczenie");
+			repeatNewWordL.setText("Powt√≥rz Wyraz");
+			yourTranslationL.setText("Twoje T≈Çumaczenie");
 		}
 	}
 	
@@ -89,7 +89,7 @@ public class AddNewWordWindow {
 				if(language.equals("EN")) {
 					correctL.setText("Fields incorrectly completed!!!");
 				}else {
-					correctL.setText("B≥ednie wype≥nione pola!!!");
+					correctL.setText("B≈Çednie wype≈Çnione pola!!!");
 				}
 			}
 			
