@@ -19,7 +19,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class LearnWindow {
-
+	
+	@FXML
+	private Label wordsCounterL;
 	@FXML
 	private Label wordLabel;
 	@FXML
@@ -183,6 +185,9 @@ public class LearnWindow {
 					}
 
 				}
+			}
+			if (language.equals("EN")){
+				wordsCounterL.setText("Learned: " + wordsList.getLearnedWordsList().size() + "\nTo learn:  " +  wordsList.getWordsList().size());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
